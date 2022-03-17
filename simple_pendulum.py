@@ -53,7 +53,7 @@ omega_0 = 0
 p = m, l, gc
 dyn_var = theta_0, omega_0
 
-tf = 60
+tf = 10
 nfps = 30
 nframes = tf * nfps
 ta = np.linspace(0, tf, nframes)
@@ -76,12 +76,11 @@ pe/=Emax
 xmax,ymax=l*[1.2, 1.2]
 xmin,ymin=l*[-1.2, -1.2]
 rad=0.05
-dr=np.sqrt(x*x+y*y)
-phi=np.arccos(x/dr)
+phi=np.arccos(x/l)
 dx=rad*np.cos(phi)
 dy=np.sign(y)*rad*np.sin(phi)
-#--plot/animation---------------------------
 
+#--plot/animation---------------------------
 fig, a=plt.subplots()
 
 def run(frame):
@@ -111,8 +110,8 @@ def run(frame):
 	ax.set_facecolor('xkcd:black')
 
 ani=animation.FuncAnimation(fig,run,frames=nframes)
-writervideo = animation.FFMpegWriter(fps=nfps)
-ani.save('simple_pendulum.mp4', writer=writervideo)
-#plt.show()
+#writervideo = animation.FFMpegWriter(fps=nfps)
+#ani.save('simple_pendulum.mp4', writer=writervideo)
+plt.show()
 
 
