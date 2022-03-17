@@ -73,8 +73,8 @@ pe/=Emax
 
 
 #--aesthetics-------------------------------
-xmax,ymax=l*[1.2, 1.2]
-xmin,ymin=l*[-1.2, -1.2]
+xmax,ymax=l*np.array([1.2, 1.2])
+xmin,ymin=l*np.array([-1.2, -1.2])
 rad=0.05
 phi=np.arccos(x/l)
 dx=rad*np.cos(phi)
